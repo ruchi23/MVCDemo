@@ -1,0 +1,13 @@
+﻿@model OrderFood.Models.RestaurantReview
+
+<!--a partial view. Renders aportion of a page. Reuse this with other views 
+  -->
+<div class="review">
+    <h4>@Model.Name</h4>
+    <span>@Model.Rating</span>
+    <p>@Model.City, @Model.Country</p>
+
+    <span class="right">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    </span>
+</div>

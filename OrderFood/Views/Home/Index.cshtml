@@ -1,0 +1,29 @@
+﻿@model IEnumerable<OrderFood.Models.RestaurantListViewModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<form method="get" action="@Url.Action("Index")"
+    data-otf-ajax="true" data-otf-target="#restaurantList">
+      
+     <input type="search" name="searchTerm" data-otf-autocomplete="@Url.Action("Autocomplete")"/>
+     <input type="submit" value="Search By Name" />
+
+</form>
+@*@using (Ajax.BeginForm(          //similiar to html form that makes a async request to the server
+    new AjaxOptions                 //ajax helper
+    {
+        HttpMethod = "get",                             //make a get request
+        InsertionMode = InsertionMode.Replace,          //whatever comes the content is replaced by
+        UpdateTargetId = "restaurantList"                   //this updated id
+    }
+    ))
+{ 
+    <input type="search" name="searchTerm" />
+    <input type="submit" value="Search By Name" />
+
+}*@
+
+@Html.Partial("_Restaurants",Model)
+
